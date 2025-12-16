@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import br.com.glendson.calc.modelo.Memoria;
 import br.com.glendson.calc.style.Colors;
 
 public class Teclado extends JPanel implements ActionListener {
@@ -67,6 +68,7 @@ public class Teclado extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() instanceof JButton) {
             JButton botao = (JButton) e.getSource();
+            Memoria.getInstancia().setTextoAtual(botao.getText());
         }
 
     }
