@@ -3,12 +3,15 @@ package br.com.glendson.calc.visao;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import br.com.glendson.calc.style.Colors;
 
-public class Teclado extends JPanel {
+public class Teclado extends JPanel implements ActionListener {
 
     public Teclado() {
         GridBagLayout layout = new GridBagLayout();
@@ -55,8 +58,16 @@ public class Teclado extends JPanel {
 
     private void adicionarBotao(String texto, Color cor, GridBagConstraints c, int x, int y) {
         Botao botao = new Botao(texto, cor);
+        botao.addActionListener(this);
         c.gridx = x;
         c.gridy = y;
         add(botao, c);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() instanceof JButton) {
+            JButton botao = (JButton) e.getSource();
+        }
+
     }
 }
